@@ -1,0 +1,15 @@
+x15:46:49.065 - [ServicesApiClient] INFO  : Initiated com.petclinic.api.onlineshopcontroller.ServicesApiClient instance
+-15:46:49.080 - [ApiCaller] INFO  : Request:
+gRequest URI:	http://petclinicapi.e46708b92c054086909b.eastus.aksapp.io/petclinic/api/shop/getproducts
+Body:			<none>
+.15:46:50.082 - [ApiCaller] INFO  : Response:
+HTTP/1.1 200 
+‡[{"id":1,"name":"Kennel Kitchen","amount":635.00,"currency":"$"},{"id":2,"name":"Velcote Liquid","amount":318.00,"currency":"$"},{"id":3,"name":"Pedigree PRO","amount":923.00,"currency":"$"},{"id":4,"name":"Velcote Premium","amount":318.00,"currency":"$"},{"id":5,"name":"Mantra Kismis","amount":63.00,"currency":"$"},{"id":6,"name":"Haldiram Noodles","amount":320.00,"currency":"$"},{"id":7,"name":"Bingo Mad Angles ","amount":912.00,"currency":"$"},{"id":8,"name":"Bikani Rasogolla","amount":318.00,"currency":"$"}]
+
+A The response is  Response{name='Kennel Kitchen', currency='$'}
+-15:46:50.149 - [ApiCaller] INFO  : Request:
+gRequest URI:	http://petclinicapi.e46708b92c054086909b.eastus.aksapp.io/petclinic/api/shop/getproducts
+Body:			<none>
+.15:46:50.636 - [ApiCaller] INFO  : Response:
+HTTP/1.1 200 
+‡[{"id":1,"name":"Kennel Kitchen","amount":635.00,"currency":"$"},{"id":2,"name":"Velcote Liquid","amount":318.00,"currency":"$"},{"id":3,"name":"Pedigree PRO","amount":923.00,"currency":"$"},{"id":4,"name":"Velcote Premium","amount":318.00,"currency":"$"},{"id":5,"name":"Mantra Kismis","amount":63.00,"currency":"$"},{"id":6,"name":"Haldiram Noodles","amount":320.00,"currency":"$"},{"id":7,"name":"Bingo Mad Angles ","amount":912.00,"currency":"$"},{"id":8,"name":"Bikani Rasogolla","amount":318.00,"currency":"$"}]
