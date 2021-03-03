@@ -1,7 +1,11 @@
 package com.petclinic.api.onlineshopcontroller.online.data;
+
 import com.google.gson.annotations.Expose;
 import lombok.Builder;
 import lombok.Getter;
+
+import java.util.List;
+
 @Getter
 @Builder
 public class Response {
@@ -15,6 +19,8 @@ public class Response {
 	private Integer amount;
 	@Expose
 	private Integer totalAmount;
+	@Expose
+	private List<Response> cart;
 
 	@Override
 	public String toString() {

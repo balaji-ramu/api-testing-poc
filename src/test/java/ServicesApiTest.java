@@ -1,3 +1,4 @@
+import api.common.ApiResponse;
 import api.common.exception.InvalidResponseException;
 import com.petclinic.api.onlineshopcontroller.ServicesApiClient;
 import com.petclinic.api.onlineshopcontroller.online.data.Response;
@@ -17,12 +18,12 @@ public class ServicesApiTest {
         apiUrl = System.getProperty("apiUrl");
     }
 
-    @Test
+/*    @Test
     public void getServices_StatusCode() throws InvalidResponseException {
         ServicesApiClient client = new ServicesApiClient(apiUrl, "api/shop/getproducts");
         statusCode = client.getStatusCode();
         softly.assertThat(statusCode).isEqualTo(200);
-    }
+    }*/
 
     @Test
     public void getDetails_getProducts() throws InvalidResponseException {
@@ -39,9 +40,6 @@ public class ServicesApiTest {
         softly.assertThat(statusCode).isEqualTo(200);
         softly.assertAll();
 
-
-
-
     }
 
     @Test
@@ -50,15 +48,12 @@ public class ServicesApiTest {
         Response response1 = client.addToCart(Response.builder()
         .amount(451)
         .currency("$")
-        .id(88)
+        .id(91)
         .name("Goat").build());
-
-
 
         softly.assertThat(response1.getAmount()).isEqualTo(451);
         softly.assertThat(response1.getCurrency()).isEqualTo("$");
         softly.assertThat(response1.getName()).isEqualTo("Goat");
-
 
         softly.assertAll();
 
@@ -68,16 +63,37 @@ public class ServicesApiTest {
     @Test
     public void getDetails_orderSummary() throws InvalidResponseException {
 
-        ServicesApiClient client1 = new ServicesApiClient(apiUrl,"api/shop/ordersummary/");
-        Response response = client1.getOrderSummary().getContent();
-        Integer Total = response.getTotalAmount();
+        ServicesApiClient client = new ServicesApiClient(apiUrl,"api/shop/addtocart/");
+        Response response = client.addToCart(Response.builder()
+                .amount(451)
+                .currency("$")
+                .id(93)
+                .name("Goat").build());
 
-        System.out.println("The total amount in the cart is"+" "+Total);
-
-        softly.assertThat(response.getAmount()).isEqualTo("1010");
-        softly.assertThat(response.getCurrency()).isEqualTo("INR");
-        softly.assertThat(response.getName()).isEqualTo("sweetcake");
+        ServicesApiClient client1 = new ServicesApiClient(apiUrl, "/api/shop/ordersummary");
+        Response response1 = client1.getOrderSummary().getContent();
+        statusCode = client1.getStatusCode();
+        softly.assertThat(response.getName()).isEqualTo("Goat");
+        softly.assertThat(response1.getTotalAmount()).isNotNull();
+        softly.assertThat(statusCode).isEqualTo(200);
         softly.assertAll();
+
+        System.out.println("The total amount in order summary is"+" "+response1.getTotalAmount());
+
+    }
+
+    @Test
+    public void clearCart_removingProduct() throws InvalidResponseException {
+
+        ServicesApiClient client = new ServicesApiClient(apiUrl,"/api/shop/clearcart/");
+        ApiResponse<Response[]> response = client.clearCart();
+        statusCode = client.getStatusCode();
+        softly.assertThat(statusCode).isEqualTo(200);
+
+        ServicesApiClient client1 = new ServicesApiClient(apiUrl, "/api/shop/ordersummary");
+        Response response1 = client1.getOrderSummary().getContent();
+        softly.assertThat(response1.getTotalAmount()).isEqualTo(0);
+
 
     }
 

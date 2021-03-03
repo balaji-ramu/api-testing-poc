@@ -1,22 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ServicesApiTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-03-02T10:16:48" hostname="DESKTOP-SQ0BGGD" time="2.825">
+<testsuite name="ServicesApiTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2021-03-03T05:09:48" hostname="DESKTOP-SQ0BGGD" time="6.806">
   <properties/>
-  <testcase name="getDetails_getProducts()" classname="ServicesApiTest" time="2.825">
-    <system-out><![CDATA[15:46:49.065 - [ServicesApiClient] INFO  : Initiated com.petclinic.api.onlineshopcontroller.ServicesApiClient instance
-15:46:49.080 - [ApiCaller] INFO  : Request:
+  <testcase name="getDetails_getProducts()" classname="ServicesApiTest" time="3.03">
+    <system-out><![CDATA[10:39:48.979 - [ServicesApiClient] INFO  : Initiated com.petclinic.api.onlineshopcontroller.ServicesApiClient instance
+10:39:48.989 - [ApiCaller] INFO  : Request:
 Request URI:	http://petclinicapi.e46708b92c054086909b.eastus.aksapp.io/petclinic/api/shop/getproducts
 Body:			<none>
-15:46:50.082 - [ApiCaller] INFO  : Response:
+10:39:50.173 - [ApiCaller] INFO  : Response:
 HTTP/1.1 200 
 [{"id":1,"name":"Kennel Kitchen","amount":635.00,"currency":"$"},{"id":2,"name":"Velcote Liquid","amount":318.00,"currency":"$"},{"id":3,"name":"Pedigree PRO","amount":923.00,"currency":"$"},{"id":4,"name":"Velcote Premium","amount":318.00,"currency":"$"},{"id":5,"name":"Mantra Kismis","amount":63.00,"currency":"$"},{"id":6,"name":"Haldiram Noodles","amount":320.00,"currency":"$"},{"id":7,"name":"Bingo Mad Angles ","amount":912.00,"currency":"$"},{"id":8,"name":"Bikani Rasogolla","amount":318.00,"currency":"$"}]
 
  The response is  Response{name='Kennel Kitchen', currency='$'}
-15:46:50.149 - [ApiCaller] INFO  : Request:
+10:39:50.242 - [ApiCaller] INFO  : Request:
 Request URI:	http://petclinicapi.e46708b92c054086909b.eastus.aksapp.io/petclinic/api/shop/getproducts
 Body:			<none>
-15:46:50.636 - [ApiCaller] INFO  : Response:
+10:39:50.801 - [ApiCaller] INFO  : Response:
 HTTP/1.1 200 
 [{"id":1,"name":"Kennel Kitchen","amount":635.00,"currency":"$"},{"id":2,"name":"Velcote Liquid","amount":318.00,"currency":"$"},{"id":3,"name":"Pedigree PRO","amount":923.00,"currency":"$"},{"id":4,"name":"Velcote Premium","amount":318.00,"currency":"$"},{"id":5,"name":"Mantra Kismis","amount":63.00,"currency":"$"},{"id":6,"name":"Haldiram Noodles","amount":320.00,"currency":"$"},{"id":7,"name":"Bingo Mad Angles ","amount":912.00,"currency":"$"},{"id":8,"name":"Bikani Rasogolla","amount":318.00,"currency":"$"}]
+]]></system-out>
+    <system-err><![CDATA[]]></system-err>
+  </testcase>
+  <testcase name="getDetails_orderSummary()" classname="ServicesApiTest" time="1.677">
+    <system-out><![CDATA[10:39:51.403 - [ServicesApiClient] INFO  : Initiated com.petclinic.api.onlineshopcontroller.ServicesApiClient instance
+10:39:51.418 - [ApiCaller] INFO  : Request:
+Request URI:	http://petclinicapi.e46708b92c054086909b.eastus.aksapp.io/petclinic/api/shop/addtocart/
+Body:
+{"name":"Goat","currency":"$","id":93,"amount":451}
+10:39:51.989 - [ApiCaller] INFO  : Response:
+HTTP/1.1 200 
+{"id":93,"name":"Goat","amount":451,"quantity":1,"currency":"$"}
+10:39:51.989 - [ServicesApiClient] INFO  : Initiated com.petclinic.api.onlineshopcontroller.ServicesApiClient instance
+10:39:51.989 - [ApiCaller] INFO  : Request:
+Request URI:	http://petclinicapi.e46708b92c054086909b.eastus.aksapp.io/petclinic/api/shop/ordersummary
+Body:			<none>
+10:39:52.536 - [ApiCaller] INFO  : Response:
+HTTP/1.1 200 
+{"cart":[{"id":93,"name":"Goat","amount":451.00,"quantity":1,"currency":"$"}],"totalAmount":451.00}
+10:39:52.536 - [ApiCaller] INFO  : Request:
+Request URI:	http://petclinicapi.e46708b92c054086909b.eastus.aksapp.io/petclinic/api/shop/ordersummary
+Body:			<none>
+10:39:53.075 - [ApiCaller] INFO  : Response:
+HTTP/1.1 200 
+{"cart":[{"id":93,"name":"Goat","amount":451.00,"quantity":1,"currency":"$"}],"totalAmount":451.00}
+The total amount in order summary is 451
+]]></system-out>
+    <system-err><![CDATA[]]></system-err>
+  </testcase>
+  <testcase name="addDetails_addToCart()" classname="ServicesApiTest" time="0.548">
+    <system-out><![CDATA[10:39:53.075 - [ServicesApiClient] INFO  : Initiated com.petclinic.api.onlineshopcontroller.ServicesApiClient instance
+10:39:53.075 - [ApiCaller] INFO  : Request:
+Request URI:	http://petclinicapi.e46708b92c054086909b.eastus.aksapp.io/petclinic/api/shop/addtocart/
+Body:
+{"name":"Goat","currency":"$","id":91,"amount":451}
+10:39:53.631 - [ApiCaller] INFO  : Response:
+HTTP/1.1 200 
+{"id":91,"name":"Goat","amount":451,"quantity":1,"currency":"$"}
+]]></system-out>
+    <system-err><![CDATA[]]></system-err>
+  </testcase>
+  <testcase name="clearCart_removingProduct()" classname="ServicesApiTest" time="1.544">
+    <system-out><![CDATA[10:39:53.639 - [ServicesApiClient] INFO  : Initiated com.petclinic.api.onlineshopcontroller.ServicesApiClient instance
+10:39:53.639 - [ApiCaller] INFO  : Request:
+Request URI:	http://petclinicapi.e46708b92c054086909b.eastus.aksapp.io/petclinic/api/shop/clearcart/
+Body:			<none>
+10:39:54.126 - [ApiCaller] INFO  : Response:
+HTTP/1.1 200 
+Cart empty.
+10:39:54.126 - [ApiCaller] INFO  : Request:
+Request URI:	http://petclinicapi.e46708b92c054086909b.eastus.aksapp.io/petclinic/api/shop/clearcart/
+Body:			<none>
+10:39:54.622 - [ApiCaller] INFO  : Response:
+HTTP/1.1 400 
+{"className":"org.springframework.web.HttpRequestMethodNotSupportedException","exMessage":"Request method 'GET' not supported"}
+10:39:54.632 - [ServicesApiClient] INFO  : Initiated com.petclinic.api.onlineshopcontroller.ServicesApiClient instance
+10:39:54.632 - [ApiCaller] INFO  : Request:
+Request URI:	http://petclinicapi.e46708b92c054086909b.eastus.aksapp.io/petclinic/api/shop/ordersummary
+Body:			<none>
+10:39:55.179 - [ApiCaller] INFO  : Response:
+HTTP/1.1 200 
+{"cart":[],"totalAmount":0}
 ]]></system-out>
     <system-err><![CDATA[]]></system-err>
   </testcase>

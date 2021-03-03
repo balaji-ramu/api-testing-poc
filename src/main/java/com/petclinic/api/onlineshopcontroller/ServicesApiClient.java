@@ -59,7 +59,11 @@ public class ServicesApiClient extends ApiClient {
         return response;
    }
 
+    public ApiResponse<Response[]> clearCart() throws InvalidResponseException {
 
+        ApiResponse<Response[]> response = caller.executeRequest(getRequest(), Method.DELETE, Response[].class);
+        return response;
+    }
 
 
 }
