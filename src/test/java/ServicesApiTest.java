@@ -33,11 +33,11 @@ public class ServicesApiTest {
         System.out.println("\n The response is "+" "+response[0]);
         statusCode = client.getStatusCode();
 
-        softly.assertThat(response[0].getName()).as("Name").isEqualTo("Kennel Kitchen");
+        softly.assertThat(response[0].getName()).as("Name").isEqualTo("Kennel Kitche");
         softly.assertThat(response[0].getId()).as("ID").isEqualTo(1);
         softly.assertThat(response[0].getAmount()).as("Amount").isEqualTo(635);
         softly.assertThat(response[0].getCurrency()).as("Currency").isEqualTo("$");
-        softly.assertThat(statusCode).isEqualTo(200);
+        softly.assertThat(statusCode).isEqualTo(201);
         softly.assertAll();
 
     }
@@ -74,7 +74,7 @@ public class ServicesApiTest {
         statusCode = client1.getStatusCode();
         softly.assertThat(response.getName()).isEqualTo("Goat");
         softly.assertThat(response1.getTotalAmount()).isNotNull();
-        softly.assertThat(statusCode).isEqualTo(200);
+        softly.assertThat(statusCode).isEqualTo(201);
         softly.assertAll();
 
         System.out.println("The total amount in order summary is"+" "+response1.getTotalAmount());
@@ -87,12 +87,12 @@ public class ServicesApiTest {
         ServicesApiClient client = new ServicesApiClient(apiUrl,"/api/shop/clearcart/");
         ApiResponse<Response[]> response = client.clearCart();
         statusCode = client.getStatusCode();
-        softly.assertThat(statusCode).isEqualTo(200);
+        softly.assertThat(statusCode).isEqualTo(201);
 
         ServicesApiClient client1 = new ServicesApiClient(apiUrl, "/api/shop/ordersummary");
         Response response1 = client1.getOrderSummary().getContent();
         softly.assertThat(response1.getTotalAmount()).isEqualTo(0);
-
+        softly.assertAll();
 
     }
 
