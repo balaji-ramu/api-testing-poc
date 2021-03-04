@@ -60,7 +60,7 @@ public class ServicesApiTest {
     }
 
     @Test
-    public void getDetails_orderSummary() throws InvalidResponseException {
+    public voi getDetails_orderSummary() throws InvalidResponseException {
 
         ServicesApiClient client = new ServicesApiClient(apiUrl,"api/shop/addtocart/");
         Response response = client.addToCart(Response.builder()
