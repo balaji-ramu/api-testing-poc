@@ -53,10 +53,9 @@ public class ServicesApiTest {
 
         softly.assertThat(response1.getAmount()).isEqualTo(451);
         softly.assertThat(response1.getCurrency()).isEqualTo("$");
-        softly.assertThat(response1.getName()).isEqualTo("Goat");
+        softly.assertThat(response1.getName()).isEqualTo("SD");
 
         softly.assertAll();
-
 
     }
 
