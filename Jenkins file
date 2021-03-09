@@ -9,7 +9,7 @@ pipeline {
 		stage('Initialize') {
 			steps {
 				echo 'Placeholder.'
-				//sh 'rm -f /var/lib/jenkins/workspace/FEI_PetClinic_RestAssuredapi/build/reports/tests/test/index.html'
+				//sh 'rm -f /var/lib/jenkins/workspace/FEI_REST_API_2/build/reports/tests/test/index.html'
 				sh """
 					JOB_NAME=${env.JOB_BASE_NAME}
 					rm -rf /var/lib/jenkins/workspace/\$JOB_NAME/build/reports/tests/test
