@@ -82,6 +82,7 @@ public class ServicesApiTest {
 
     }
 
+    //clear cart
     @Test
     public void clearCart_removingProduct() throws InvalidResponseException {
 
