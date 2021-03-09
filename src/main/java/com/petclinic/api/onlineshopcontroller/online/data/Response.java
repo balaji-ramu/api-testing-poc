@@ -18,7 +18,7 @@ public class Response {
 	@Expose
 	private Integer amount;
 	@Expose
-	private Integer totalAmount;
+	private Double totalAmount;
 	@Expose
 	private List<Response> cart;
 
