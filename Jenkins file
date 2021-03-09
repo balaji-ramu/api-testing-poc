@@ -4,7 +4,7 @@ pipeline {
     		def GIT_REPO_NAME = "balaji-ramu"
     		def DEPLOY_ENV = "dev"
 	}
-    	agent { dockerfile true }
+    	agent { Docker true }
 	stages {
 		stage('Initialize') {
 			steps {
