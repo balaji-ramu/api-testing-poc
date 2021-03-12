@@ -59,6 +59,7 @@ public class ServicesApiTest {
 
     }
 
+    //order summary
     @Test
     public void getDetails_orderSummary() throws InvalidResponseException {
 
